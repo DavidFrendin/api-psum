@@ -10,6 +10,10 @@ var imageSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    preview_url: {
+        type: String,
+        required: true
+    },
     url: {
         type: String,
         required: true
@@ -23,8 +27,9 @@ var imageSchema = mongoose.Schema({
         required: true
     }
 });
-// Export Bio Model
-var Image = module.exports = mongoose.model('images', imageSchema);
-module.exports.get = function (callback, limit) {
-   Image.find(callback).limit(limit); 
+// Export Image Model
+var Image = module.exports = mongoose.model('image', imageSchema);
+module.exports.get = function (callback, limit, page) {
+	limit = parseInt(limit);
+	Image.find(callback).limit(limit).skip((page - 1) * limit); 
 }

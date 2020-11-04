@@ -20,3 +20,8 @@ block content
 
 	h4 May the force be with you
 	p All content on API-psum is star wars themed. It provides a cohesive topic for all back-end output, and is a little bit more fun to work with.
+
+	form(method="post", action="/api/auth/")
+		input(type="text", name="username", placeholder="username")
+		input(type="text", name="password", placeholder="password")
+		input(type="submit", value="submit")

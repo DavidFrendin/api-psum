@@ -11,7 +11,7 @@ var userSchema = mongoose.Schema({
         required: true
     },
     roles: {
-        type: String,
+        type: [String],
         required: true,
 		enum: ['REBEL', 'JEDI', 'SITH', 'DROID', 'CLONE']
     },

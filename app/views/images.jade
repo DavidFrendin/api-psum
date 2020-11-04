@@ -1,0 +1,83 @@
+extends layout
+
+block content
+
+	nav(aria-label="breadcrumb")
+		ol(class="breadcrumb")
+			li(class="breadcrumb-item")
+				a(href="/") Home
+			li(class="breadcrumb-item active", aria-current="page") Images
+	
+	section(class="api-section")
+		h3(class="api-section__caption") List images
+		p Endpoint:
+			b /api/images/
+
+		div(class="api-section__panel")
+			div(class="container")
+				div(class="row")
+					div(class="col")
+						pre
+							code.
+								[{
+									"_id": "5fa05ea7aca4f7272c0f04a2",
+									"url": "https://unsplash.com/photos/...",
+									"author": "Agnieszka Kowalczyk",
+									"width": 6000,
+									"height": 4000,
+									"download_url": "https://unsplash.com/photos/...",
+									"preview_url": "https://unsplash.com/photos/..."
+								}]
+					div(class="col")
+						b List Images
+						p Get a list of images by using the /api/images/ endpoint.
+						ul
+							li
+								a(href="https://api-psum.herokuapp.com/api/images/") https://api-psum.herokuapp.com/api/images/
+						p The API will by default return page 1 with a limit of 10 items.
+						b Optional query string attributes
+						ul
+							li
+								b ?page={:number}
+								span &nbsp; - request a different page of the result set.
+							li
+								b ?limit={:number}
+								span &nbsp; - specify the size of each page.
+
+						b Header
+						p The Link header includes pagination information about the next/previous pages.
+						p For a more comprehensive explanation, visit
+							a(href="https://developer.github.com/v3/guides/traversing-with-pagination/")  https://developer.github.com/v3/guides/traversing-with-pagination/
+
+
+	section(class="api-section")
+		h3(class="api-section__caption") Random image
+		p Endpoint:
+			b /api/images/random/
+
+		div(class="api-section__panel")
+			div(class="container")
+				div(class="row")
+					div(class="col")
+						pre
+							code.
+								{
+									"_id": "5fa05ea7aca4f7272c0f04a2",
+									"url": "https://unsplash.com/photos/...",
+									"author": "Agnieszka Kowalczyk",
+									"width": 6000,
+									"height": 4000,
+									"download_url": "https://unsplash.com/photos/...",
+									"preview_url": "https://unsplash.com/photos/..."
+								]
+					div(class="col")
+						b Random image
+						p Get a random image by using the /api/images/random/ endpoint.
+						ul
+							li
+								a(href="https://api-psum.herokuapp.com/api/images/random/") https://api-psum.herokuapp.com/api/images/random/
+
+						b Preview endpoint
+						p The /api/images/random/preview endpoint automatically redirects to the images preview_url.
+						p Example: <code>&lt;img src="https://api-psum.herokuapp.com/api/images/random/preview/" /&gt;</code>
+						img(src="/api/images/random/preview/", style="max-width: 100%; max-height: 160px;")

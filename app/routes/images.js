@@ -39,9 +39,16 @@ router.get('/', function(req, res, next) {
 
 
 
-router.get('/test', function(req, res, next) {
-  res.send('respond with a resource test 2');
+router.get('/random', function(req, res, next) {
+  Image.getRandom(function (err, image) {
+  	res.json(image);
+  });
 });
 
+router.get('/random/preview', function(req, res, next) {
+  Image.getRandom(function (err, image) {
+  	res.redirect(image.preview_url); 
+  });
+});
 
 module.exports = router;

@@ -33,3 +33,17 @@ module.exports.get = function (callback, limit, page) {
 	limit = parseInt(limit);
 	Image.find(callback).limit(limit).skip((page - 1) * limit); 
 }
+
+module.exports.getRandom = function (callback) {
+	Image.count().exec(function (err, count) {
+		var random = Math.floor(Math.random() * count)
+		Image.findOne().skip(random).exec(callback)
+	})
+}
+
+
+
+  // Get a random entry
+  
+
+  // Again query all users but only fetch one offset by our random #

@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var imagesRouter = require('./routes/images');
 var authRouter = require('./routes/auth');
+var testRouter = require('./routes/test');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -37,10 +38,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
+app.use('/assets', express.static('assets'))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/images', imagesRouter);
+app.use('/api/images', imagesRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/test', testRouter);
 
 
 // catch 404 and forward to error handler

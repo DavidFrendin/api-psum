@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+.api-section {
+	margin-top: 3em;
+}
+
+.api-section__panel {
+	background: rgba(0,0,0,.05);
+	padding: 2em;
+	margin-bottom: 2em;
+	border-radius: 3px;
+}

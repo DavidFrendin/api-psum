@@ -1,5 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1 API-psum
+	p(class='lead') Welcome to API-psum, a web service for jabber mockup data.
+
+	h2 What is it for?
+	p API-psum provides a read-only API-layer that provides mockup data. By using this service you can build front-end (and back-end) code against a fictitious but live datasource, which is helpful when experimenting and learning new frameworks, languages or scaffolding new websites without having a back-end ready.
+
+	h3 So how does it work?
+	p There are multiple endpoints and use-cases, but the perhaps easiest example would be to load a random image:
+
+	img(src="/api/images/random/preview")
+
+	p
+		code &lt;img src="/api/images/random/preview" /&gt;
+
+	p All API endpoints have descriptions.
+
+
+	h4 May the force be with you
+	p All content on API-psum is star wars themed. It provides a cohesive topic for all back-end output, and is a little bit more fun to work with.

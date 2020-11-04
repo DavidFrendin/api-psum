@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var imagesRouter = require('./routes/images');
 var authRouter = require('./routes/auth');
 var testRouter = require('./routes/test');
+var jabberRouter = require('./routes/jabber');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -44,6 +45,7 @@ app.use('/users', usersRouter);
 app.use('/api/images', imagesRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/test', testRouter);
+app.use('/api/jabber', jabberRouter);
 
 
 // catch 404 and forward to error handler

@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Image = require('../models/imageModel');
-var cors = require('cors')
-var corsOptions = { origin: true }
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

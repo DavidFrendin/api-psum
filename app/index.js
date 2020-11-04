@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 
 app.use('/assets', express.static('assets'))
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/users', usersRouter);
 app.use('/api/images', imagesRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/test', testRouter);

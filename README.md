@@ -40,7 +40,7 @@ API-psum provides a back-end with structured persistent or random data.
 It's freely available live at [https://api-psum.herokuapp.com](https://api-psum.herokuapp.com/), where api details and examples are provided.
 
 ## Image list
-Endpoint: [get] /api/images/
+Endpoint: [GET] /api/images/
 
 Retrieves an array of images.
 
@@ -68,7 +68,7 @@ Link: <http://api-psum.herokuapp.com/images/?page=1&limit=10>; rel="first", <htt
 	* Specify how many documents from the collection should be retrieved per page.
 
 ## Random image
-Endpoint: [get] /api/images/random/
+Endpoint: [GET] /api/images/random/
 
 Retrieves a single random image.
 
@@ -85,7 +85,7 @@ Retrieves a single random image.
 ```
 
 ## Random image preview
-Endpoint: [get] /api/images/random/preview/
+Endpoint: [GET] /api/images/random/preview/
 
 Redirects to a single random images 'preview_url' field.
 
@@ -94,7 +94,7 @@ Redirects to a single random images 'preview_url' field.
 ```
 
 ## Jabber
-Endpoint: [get] /api/jabber/
+Endpoint: [get] /GET/jabber/
 
 Retrieves an array of jabber paragraphs.
 
@@ -111,8 +111,8 @@ The first paragraph begins with "Star wars ipsum dolor sit amet", the rest of th
 ]
 ```
 
-## Jabber
-Endpoint: [get] /api/jabber/name/
+## Random name
+Endpoint: [GET] /api/jabber/name/
 
 Retrieves a randomly generated full name by combining random first and last names of star wars characters.
 
@@ -120,6 +120,53 @@ Retrieves a randomly generated full name by combining random first and last name
 ```
 Qui-Gon Grievous
 ```
+
+## Authentication
+Endpoint: [POST] /api/auth/
+
+The auth endpoint creates a [JWT Token](https://jwt.io/). A valid username is required, but any password is successful.
+
+The JWT token can be verified using the secret ```api-psum```.
+
+**Form fields**
+```
+username={valid-username}
+password={any-string}
+```
+
+**Result:**
+```jwt
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2FwaS1wc3VtLmhlcm9rdWFwcC5jb20vIiwic3ViIjoicHVibGljIiwiZXhwIjoxNjA0NjA3MDkzLCJpYXQiOjE2MDQ1MjA2OTMsIm5iZiI6MTYwNDUyMDY5MywianRpIjoiZWM5ODZmOGEtY2VjZS00ZTBiLWE3N2UtMjRkYWM3OTg4OGQwIiwidXNlciI6eyJyb2xlcyI6WyJSRUJFTCIsIkpFREkiXSwiX2lkIjoiNWZhMzA0NTRhY2E0ZjcyNzJjMGYwNTA2IiwidXNlcm5hbWUiOiJrZW5vYmkiLCJuYW1lIjoiT2JpLVdhbiBLZW5vYmkiLCJwcm9maWxlX2ltYWdlIjoiaHR0cHM6Ly9hcGktcHN1bS5oZXJva3VhcHAuY29tL2ltYWdlcy9wcm9maWxlL2tlbm9iaS5qcGcifX0.s_PfXuVO8Cz3Ch_0mQTrLZhJfQtVntNcUWp2ns84hvI
+```
+
+**Decoded**
+```json
+Header
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+Payload
+{
+  "iss": "https://api-psum.herokuapp.com/",
+  "sub": "public",
+  "exp": 1604607093,
+  "iat": 1604520693,
+  "nbf": 1604520693,
+  "jti": "ec986f8a-cece-4e0b-a77e-24dac79888d0",
+  "user": {
+    "roles": [
+      "REBEL",
+      "JEDI"
+    ],
+    "_id": "5fa30454aca4f7272c0f0506",
+    "username": "kenobi",
+    "name": "Obi-Wan Kenobi",
+    "profile_image": "https://api-psum.herokuapp.com/images/profile/kenobi.jpg"
+  }
+}
+```
+Decoded, the user field will contain the user profile information.
 
 ## Star wars theme
 All data provided by API-psum is star wars themed; from random name generation to images served.

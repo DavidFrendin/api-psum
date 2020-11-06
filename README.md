@@ -124,7 +124,7 @@ Qui-Gon Grievous
 ## Authentication
 Endpoint: [POST] /api/auth/
 
-The auth endpoint creates a [JWT Token](https://jwt.io/). A valid username is required, but any password is successful.
+The auth endpoint creates a [JWT Token](https://jwt.io/). A valid username is required, but any password is successful. Users are listed in the /api/users/ endpoint.
 
 The JWT token can be verified using the secret ```api-psum```.
 

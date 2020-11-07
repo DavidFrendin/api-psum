@@ -121,6 +121,102 @@ Retrieves a randomly generated full name by combining random first and last name
 Qui-Gon Grievous
 ```
 
+## User models
+### Obi-wan Kenobi
+```json
+{
+  "_id": {
+    "$oid": "5fa30454aca4f7272c0f0506"
+  },
+  "username": "kenobi",
+  "name": "Obi-Wan Kenobi",
+  "roles": [
+    "REBEL",
+    "JEDI"
+  ],
+  "profile_image": "https://api-psum.herokuapp.com/images/profile/kenobi.jpg"
+}
+```
+
+### Emperor Palpatine
+```json
+{
+  "_id": {
+    "$oid": "5fa580f1aca4f7272c0f0507"
+  },
+  "username": "palpatine",
+  "name": "Emperor Palpatine",
+  "roles": [
+    "SITH",
+    "LORD"
+  ],
+  "profile_image": "http://api-psum.herokuapp.com/images/profile/palpatine.jpg"
+}
+```
+### Jar Jar Binks
+```json
+{
+  "_id": {
+    "$oid": "5fa58371aca4f7272c0f0508"
+  },
+  "username": "jarjar",
+  "name": "Jar Jar Binks",
+  "roles": [
+    "GUNGAN",
+    "SENATOR"
+  ],
+  "profile_image": "http://api-psum.herokuapp.com/images/profile/jarjar.jpg"
+}
+```
+
+### Count Dooku
+```json
+{
+  "_id": {
+    "$oid": "5fa584feaca4f7272c0f0509"
+  },
+  "username": "dooku",
+  "name": "Count Dooku",
+  "roles": [
+    "SITH",
+    "COUNT"
+  ],
+  "profile_image": "http://api-psum.herokuapp.com/images/profile/dooku.jpg"
+}
+```
+
+###  Han Solo
+```json
+{
+  "_id": {
+    "$oid": "5fa585c9aca4f7272c0f050a"
+  },
+  "username": "solo",
+  "name": "Han Solo",
+  "roles": [
+    "REBEL",
+    "BOUNTY HUNTER"
+  ],
+  "profile_image": "http://api-psum.herokuapp.com/images/profile/solo.jpg"
+}
+```
+
+### Lunk Skywalker
+```json
+{
+  "_id": {
+    "$oid": "5fa58635aca4f7272c0f050b"
+  },
+  "username": "skywalker",
+  "name": "Luke Skywalker",
+  "roles": [
+    "REBEL",
+    "JEDI"
+  ],
+  "profile_image": "http://api-psum.herokuapp.com/images/profile/skywalker.jpg"
+}
+```
+
 ## Authentication
 Endpoint: [POST] /api/auth/
 

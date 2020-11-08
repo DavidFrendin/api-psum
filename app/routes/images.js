@@ -20,13 +20,13 @@ router.get('/', function(req, res, next) {
 				var maxPages = Math.ceil(imagesInCollection / limit);
 
 
-				var link = `<${req.secure ? 'https' : 'http'}://${req.headers.host}/images/?page=1&limit=${limit}>; rel="first"`;
-				link = link + `, <${req.secure ? 'https' : 'http'}://${req.headers.host}/images/?page=${maxPages}&limit=${limit}>; rel="last"`;
+				var link = `<${req.secure ? 'https' : 'http'}://${req.headers.host}/api/images/?page=1&limit=${limit}>; rel="first"`;
+				link = link + `, <${req.secure ? 'https' : 'http'}://${req.headers.host}/api/images/?page=${maxPages}&limit=${limit}>; rel="last"`;
 				if (page > 1) {
-					link = link + `, <${req.secure ? 'https' : 'http'}://${req.headers.host}/images/?page=${parseInt(page) - 1}&limit=${limit}>; rel="prev"`;
+					link = link + `, <${req.secure ? 'https' : 'http'}://${req.headers.host}/api/images/?page=${parseInt(page) - 1}&limit=${limit}>; rel="prev"`;
 				}
 				if (page < maxPages) {
-					link = link + `, <${req.secure ? 'https' : 'http'}://${req.headers.host}/images/?page=${parseInt(page) + 1}&limit=${limit}>; rel="next"`;
+					link = link + `, <${req.secure ? 'https' : 'http'}://${req.headers.host}/api/images/?page=${parseInt(page) + 1}&limit=${limit}>; rel="next"`;
 				}
 				res.header("Link", link);
 				res.json(image);
